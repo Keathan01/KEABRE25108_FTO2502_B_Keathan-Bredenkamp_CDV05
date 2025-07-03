@@ -166,3 +166,49 @@
     <span class="footer-title">Keathan Bredenkamp</span>
     <p>&copy; 2025 All Rights Reserved.</p>
   </footer>
+   <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll('.fade-in, .fade-left, .fade-right, .zoom-in')
+      .forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Scroll To Top Script -->
+  <script>
+    const menuBtn = document.querySelector(".menu-btn");
+    const navigation = document.querySelector(".navigation");
+    const navigationItems = document.querySelectorAll(".navigation a");
+    const scrollBtn = document.querySelector(".scrollToTop-btn");
+
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      navigation.classList.toggle("active");
+    });
+
+    window.addEventListener("scroll", () => {
+      document.querySelector("header").classList.toggle("sticky", window.scrollY > 0);
+      scrollBtn.classList.toggle("active", window.scrollY > 500);
+    });
+
+    navigationItems.forEach(item => {
+      item.addEventListener("click", () => {
+        menuBtn.classList.remove("active");
+        navigation.classList.remove("active");
+      });
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+</body>
+</html>
+
