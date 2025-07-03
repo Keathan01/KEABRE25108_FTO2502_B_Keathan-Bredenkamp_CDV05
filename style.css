@@ -449,3 +449,73 @@ section {
   opacity: 1;
   transform: scale(1);
 }
+/* Responsive */
+@media (max-width: 991px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .navigation {
+    margin-top: 10px;
+  }
+
+  .about .col-left,
+  .about .col-right,
+  .skills .col-left,
+  .skills .col-right {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .services .card,
+  .work .card,
+  .contact .card {
+    width: 90%;
+  }
+
+  .main h2 span {
+    font-size: 2.2rem;
+  }
+
+  .menu-btn {
+    display: block;
+    width: 35px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .menu-btn::before,
+  .menu-btn::after,
+  .menu-btn div {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: white;
+    transition: 0.3s;
+  }
+
+  .menu-btn::before { top: 0; }
+  .menu-btn::after { bottom: 0; }
+  .menu-btn div { top: 50%; transform: translateY(-50%); }
+
+  .navigation {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+  }
+
+  .navigation.active {
+    display: flex;
+  }
+
+  .navigation a {
+    margin: 15px 0;
+  }
+}
